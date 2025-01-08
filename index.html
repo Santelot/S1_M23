@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                 document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-8').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M23</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Preparación para el aprendizaje sobre hardware de impresión 3D.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy exploraremos el corazón de la impresión 3D: la impresora. Aprenderemos sobre sus partes, cómo funcionan y cómo debemos configurarlas para obtener los mejores resultados.  Prepárense para un viaje al interior de esta increíble máquina."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo están?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, quiero saber cómo se sienten hoy. Si están listos para aprender sobre impresoras 3D, imiten el movimiento del cabezal de una impresora. Si necesitan un momento para enfocarse, coloquen las manos sobre sus oídos."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Juntemos nuestras manos en agradecimiento por la oportunidad de explorar y aprender juntos. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Nuestros objetivos para hoy son tres: 1. Conocer las partes de una impresora 3D y su función. 2. Comprender cómo funciona una impresora 3D. 3. Aprender sobre errores comunes y cómo prevenirlos."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">💡 Actividad 2: Innovación del Día ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Presentación de avances en hardware de impresión 3D.</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Innovación del Día".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy veremos un avance en la tecnología de la impresión 3D que está transformando la manera en que construimos objetos: la 'Impresión 3D con Múltiples Extrusores'. Esta tecnología permite combinar diferentes materiales, colores y propiedades en una misma impresión, creando objetos más complejos y versátiles."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 "Video de Impresión con Múltiples Extrusores".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Observen este video para ver cómo funciona la impresión 3D con múltiples extrusores. Noten la forma en que los diferentes materiales se combinan para crear objetos con distintas propiedades. Esta tecnología nos abre un mundo de posibilidades en el diseño, y nos permite crear objetos que serían imposibles de hacer con una sola impresora."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1.5 minutos):</strong> Proyectar Diapositiva 8 "Reflexión sobre Impresión con Múltiples Extrusores".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "La impresión 3D con múltiples extrusores nos enseña la importancia de conocer los componentes y las capacidades de nuestras impresoras 3D. Hoy, aprenderemos a reconocer las diferentes partes de una impresora y a entender cómo funcionan, lo cual es fundamental para aprovechar al máximo esta tecnología."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">🧠 Actividad 3: Brain Gym ⏰ Tiempo: 19 minutos</div>
+        <div class="subtitle">Exploración de las partes, funcionamiento y configuración de impresoras 3D.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 9 "Introducción al Hardware de Impresión 3D".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy vamos a sumergirnos en el mundo de la mecánica de la impresión 3D. Aprenderemos sobre las diferentes partes de una impresora 3D, su función y cómo trabajan juntas para crear objetos tridimensionales. Así como un chef necesita conocer cada utensilio y su función, un diseñador 3D necesita conocer el hardware de la impresora para lograr los mejores resultados. Comprender cada componente nos permitirá controlar mejor el proceso de impresión."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1.5 minutos):</strong> Proyectar Diapositiva 10 "Partes Principales de una Impresora 3D".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Una impresora 3D tiene varias partes principales: La 'Boquilla' o 'Nozzle', es la encargada de fundir y depositar el filamento. El 'Extrusor' es el mecanismo que empuja el filamento hacia la boquilla. La 'Cama Caliente' es la superficie donde se adhiere el objeto durante la impresión y que se calienta para mejorar la adherencia. Los 'Motores Paso a Paso' controlan el movimiento de la boquilla y de la cama. Y la 'Tarjeta Madre' es el cerebro de la impresora, encargada de ejecutar las instrucciones del G-Code. Cada una de estas partes cumple una función importante y trabajan en conjunto para lograr la impresión."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (2 minutos):</strong> Proyectar Diapositiva 11 "El Proceso de Extrusión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "El proceso de extrusión es el corazón de la impresión 3D. El extrusor empuja el filamento a través de la boquilla, que se calienta a una temperatura específica para fundir el filamento. Luego, la boquilla deposita el material fundido en la cama capa por capa, siguiendo las instrucciones del G-Code.  El proceso es preciso y repetitivo, creando formas complejas con gran detalle. Entender el proceso de extrusión es clave para comprender cómo las impresoras 3D crean objetos tridimensionales. Imaginen que el extrusor y la boquilla son como un lápiz que dibuja en 3D."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (2 minutes):</strong> Proyectar Diapositiva 12 "El Movimiento en la Impresión 3D".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Los motores paso a paso son los encargados de mover la boquilla y la cama de impresión con gran precisión.  Estos motores mueven la boquilla en los ejes X, Y y Z, guiándola sobre la cama de impresión para formar las capas del objeto.  La precisión de estos movimientos es lo que permite que nuestros modelos se impriman con gran detalle y sin errores. La coordinación entre los motores paso a paso y el proceso de extrusión es lo que permite la creación de objetos 3D complejos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (1.5 minutos):</strong> Proyectar Diapositiva 13 "La Función de la Cama Caliente".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "La cama caliente es un componente muy importante. Esta superficie se calienta para que el objeto se adhiera a la cama durante la impresión.  La temperatura de la cama es diferente dependiendo del material que estemos usando, por ejemplo el PLA requiere menos calor que el ABS.  La temperatura de la cama asegura que la primera capa se adhiera de manera correcta, evitando que el objeto se despegue durante la impresión.  Una cama bien calibrada y con la temperatura correcta es fundamental para una buena impresión."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (2 minutos):</strong> Proyectar Diapositiva 14 "Configuración y Calibración de una Impresora 3D".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para obtener resultados precisos en la impresión 3D, es necesario configurar y calibrar la impresora. La 'Calibración de la Cama' asegura que la boquilla esté a la misma altura en todos los puntos de la superficie de la impresión, para que el filamento se deposite correctamente.  Asegurarse de que la boquilla se desplace a la distancia correcta sobre la cama es lo que se conoce como 'Calibración del Eje Z'. Además, la temperatura de la boquilla y de la cama son otros dos ajustes cruciales.  La correcta configuración y calibración de la impresora garantiza que nuestros diseños se impriman de manera precisa y fiel al modelo original.  Es como afinar un instrumento para que suene perfecto."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 7 (1.5 minutos):</strong> Proyectar Diapositiva 15 "Troubleshooting: Errores Comunes en la Impresión 3D".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En la impresión 3D, es común encontrar errores.  Algunos errores comunes incluyen el filamento que no se adhiere a la cama, problemas de extrusión, y deformaciones en el objeto.  El filamento puede no adherirse a la cama por diferentes motivos: calibración incorrecta, cama sucia, temperatura inadecuada y mal uso de las superficies de adhesión.  Los problemas de extrusión ocurren por una boquilla obstruida o una temperatura de boquilla inadecuada. La deformación de los objetos, o warping, suele ocurrir cuando las capas no se adhieren correctamente y se contraen por cambios de temperatura."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (2 minutes):</strong> Proyectar Diapositiva 16 "Técnicas para Prevenir y Corregir Errores".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para prevenir errores, es importante calibrar la impresora antes de cada impresión, limpiar la cama y usar los ajustes correctos.  Si tenemos problemas de adherencia podemos utilizar una superficie de adhesión como laca, pegamento o cinta.  Si la boquilla está obstruida podemos limpiarla con una aguja de limpieza.  Y si hay deformaciones, podemos usar una cama caliente y ajustar la temperatura de la impresión. Conocer las soluciones a estos problemas es fundamental para poder imprimir con confianza y obtener resultados consistentes. Recuerden que en la impresión 3D, la práctica y la paciencia son claves para alcanzar el éxito."</td>
+            </tr>
+           <tr>
+                 <td><strong>PASO 9 (2 minutes):</strong> Proyectar Diapositiva 17 "Integración de Diseño, Slicing e Impresión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy cerramos el ciclo de la creación con impresión 3D. Hemos pasado por el diseño del modelo en TinkerCAD, la preparación del modelo para impresión mediante el 'Slicing' en AstroPrint y ahora conocemos el funcionamiento de una impresora 3D.  Al comprender cada paso del proceso podemos crear objetos precisos y funcionales.  La combinación del diseño creativo, la preparación técnica y el conocimiento del hardware es la clave para transformar nuestras ideas en realidad.  Al final, el proceso de la impresión 3D es la materialización de nuestra creatividad."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 10 (1 minute):</strong> Proyectar Diapositiva 18 "El Dato Curioso".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Es curioso saber que las primeras impresoras 3D fueron creadas a finales de la década de 1980 por Chuck Hull, quien acuñó el término 'estereolitografía' para describir el proceso de crear objetos tridimensionales mediante capas de polímeros que se solidificaban con luz ultravioleta.  Desde esas primeras impresoras, se han generado nuevas tecnologías que hoy permiten imprimir con diferentes materiales y geometrías.  Los avances tecnológicos en la impresión 3D nos llevan a un futuro donde podemos diseñar y materializar cualquier idea."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 11 (0.5 minutos):</strong> Proyectar Diapositiva 19 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hemos cumplido todos los objetivos de esta misión. Conocen las partes de una impresora 3D y su función, comprenden el funcionamiento de la impresora y saben sobre los errores comunes y cómo prevenirlos. ¡Excelente trabajo, Genios!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🎨 Actividad 4: State Change ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Pausa creativa para estimular la imaginación.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 20 "Dibujar un Doodle".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Vamos a hacer una pausa para estimular nuestra creatividad. Tomen un lápiz y una hoja de papel, y dibujen un diseño para un llavero que les gustaría imprimir en 1 minuto. No tiene que ser perfecto; la idea es dejar que su imaginación fluya libremente."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 21 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 22 "Reflexión sobre el Doodle".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Excelente trabajo. Este pequeño ejercicio nos ayuda a estimular la creatividad y a pensar en nuestras ideas de diseño. Ahora estamos listos para retomar las actividades con una mente fresca y enfocada."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 5: Team Gnius ⏰ Tiempo: 5 minutos</div>
+        <div class="subtitle">Organización de equipos y preparación del Challenge.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 23 "Formación de Parejas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, para esta actividad formen parejas. Tómense un minuto para elegir a su compañero o compañera y sentarse juntos."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 24 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 25 "Recoger Magic Tablets".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que tienen sus parejas, envíen a un representante a recoger una Magic Tablet para cada equipo."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 26 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 5 (2 minutos):</strong> Proyectar Diapositiva 27 "Planificación de Tareas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que ya tienen sus parejas, vamos a planificar el Challenge de hoy. Usen su tablero Kanban para organizar las tareas que necesitan, como el diseño del llavero, la preparación del modelo y la configuración del slicing en AstroPrint. Tienen dos minutos para organizarse.  Imaginen que son un equipo de ingenieros que necesitan diseñar un producto y tienen poco tiempo. La planificación es esencial para alcanzar los objetivos."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 6 -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🏆 Actividad 6: Challenge ⏰ Tiempo: 14.5 minutos</div>
+        <div class="subtitle">Diseño y preparación de llaveros para impresión 3D.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 28 "Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ha llegado el momento de poner a prueba sus conocimientos sobre la impresión 3D. En este Challenge, diseñarán y prepararán un llavero personalizado para su impresión. ¡Pongan en práctica su creatividad y habilidades!"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 29 "Diseño y Slicing del Llavero".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Su reto consiste en diseñar en TinkerCAD un llavero personalizado que pueda ser impreso en 5 minutos.  Exportarán el modelo y lo subirán a AstroPrint, donde harán el 'Slicing' para corroborar que el llavero se pueda imprimir en 5 minutos como máximo y sin soportes.  Los niveles de dificultad son:
+                 <ul>
+                    <li><strong>Rookie:</strong> Diseñar un llavero personalizado sencillo que no necesite soportes para imprimirse.</li>
+                    <li><strong>Master:</strong> (+) Exportar el modelo, subirlo a AstroPrint y configurarlo para que se pueda imprimir en 5 minutos.</li>
+                    <li><strong>Hacker:</strong> (+)  Diseñar un llavero con detalles creativos, subirlo a AstroPrint y configurarlo para que se imprima en 5 minutos o menos y que la impresión sea de la mejor calidad posible.</li>
+                 </ul>
+                 Recuerden que deben aplicar todos los conocimientos que han adquirido en las clases anteriores, tanto de diseño como de preparación para la impresión 3D.  Imaginen que son diseñadores de prototipos y que deben asegurarse de que sus productos se impriman de la mejor forma posible."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (10 minutos):</strong> Proyectar Diapositiva 30 "Cronómetro - 10 Minutos".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 31 "Presentación de Llaveros".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Ha llegado el momento de mostrar sus creaciones. Cada equipo tendrá un minuto para presentar su llavero a sus compañeros. Expliquen qué elementos de diseño utilizaron, cómo lograron que se imprimiera en 5 minutos y qué dificultades encontraron en el proceso.  Compartir sus experiencias les ayudará a aprender de las estrategias de otros y a mejorar sus habilidades."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 32 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 6 (0.5 minutos):</strong> Proyectar Diapositiva 33 "Objetivos Alcanzados".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hemos alcanzado todos los objetivos de esta misión. Conocen las partes de una impresora 3D y su función, comprenden el funcionamiento de la impresora y saben sobre errores comunes y cómo prevenirlos.  ¡Excelente trabajo, Genios!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 34 "You've Got Mon-e".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Felicidades, Genios! Han demostrado su capacidad para combinar el diseño creativo con la preparación para la impresión 3D. Todos se llevan Mon-e por su esfuerzo y dedicación. ¡Sigan explorando y creando!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 7 -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">🥚 Actividad 7: Easter Egg ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Evaluación de la memoria y la atención.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <table>
+             <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 35 "Easter Egg - Pregunta".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, es hora del Easter Egg. La siguiente diapositiva tiene una pregunta sobre algo que mencioné durante el Brain Gym. Los tres primeros en levantar la mano y responder correctamente ganarán Mon-e. Recuerden no decir la respuesta en voz alta, solo levanten la mano. ¿Están preparados?"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 36 "Pregunta del Easter Egg".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¿Cuál fue el nombre que le dio Chuck Hull al proceso de impresión 3D, donde se usa luz ultravioleta para solidificar el material?"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 37 "Respuesta Correcta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno, ven y dime la respuesta al oído... Ahora tú, dos... Y por último, el tres. La respuesta correcta es: ¡Estereolitografía! ¡Felicidades a los ganadores, les toca Mon-e!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 8 -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🎖️ Actividad 8: Honor de Dojo ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Despedida y organización del espacio de trabajo.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (2 minutos):</strong> Proyectar Diapositiva 38 "Honor the Dojo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hemos terminado por hoy.  Ahora, cada equipo pasará al frente para devolver su Magic Tablet. Asegúrense de dejar su área ordenada. Recordemos que cuidar nuestro espacio es parte de nuestro aprendizaje.  ¡Gracias por su esfuerzo y colaboración!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
